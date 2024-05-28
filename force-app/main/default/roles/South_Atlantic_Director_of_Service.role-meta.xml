@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>South Atlantic Director of Service</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>East_VP_of_Service</parentRole>
+</Role>
