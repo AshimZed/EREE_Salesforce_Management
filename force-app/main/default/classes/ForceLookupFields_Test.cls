@@ -10,7 +10,7 @@ private class ForceLookupFields_Test {
         insert acc;
 
         Opportunity opp = new Opportunity(
-            Name = 'Test Opportunity',
+            Name      = 'Test Opportunity',
             StageName = 'Prospecting',
             CloseDate = Date.today().addDays(30)
         );
@@ -21,17 +21,17 @@ private class ForceLookupFields_Test {
     @isTest
     private static void ForceLookup_Success() {
         // Grab test data
-        Account testAccount = [SELECT Id FROM Account WHERE Name = 'Test Account' LIMIT 1];
+        Account testAccount         = [SELECT Id FROM Account WHERE Name = 'Test Account' LIMIT 1];
         Opportunity testOpportunity = [SELECT Id, AccountId FROM Opportunity WHERE Name = 'Test Opportunity' LIMIT 1];
 
         // Set up inputs
         List<ForceLookupFields.Input> inputs = new List<ForceLookupFields.Input>();
-        ForceLookupFields.Input input = new ForceLookupFields.Input();
-        input.childId = testOpportunity.Id;
+        ForceLookupFields.Input input        = new ForceLookupFields.Input();
+        input.childId           = testOpportunity.Id;
         input.relationshipField = 'AccountId';
-        input.parentObjectAPI = 'Account';
-        input.parentKnownField = 'Name';
-        input.parentKnownValue = 'Test Account';
+        input.parentObjectAPI   = 'Account';
+        input.parentKnownField  = 'Name';
+        input.parentKnownValue  = 'Test Account';
         inputs.add(input);
 
         // Check current relationship
@@ -53,17 +53,17 @@ private class ForceLookupFields_Test {
     @isTest
     private static void ForceLookup_NoMatch() {
         // Grab test data
-        Account testAccount = [SELECT Id FROM Account WHERE Name = 'Test Account' LIMIT 1];
+        Account testAccount         = [SELECT Id FROM Account WHERE Name = 'Test Account' LIMIT 1];
         Opportunity testOpportunity = [SELECT Id, AccountId FROM Opportunity WHERE Name = 'Test Opportunity' LIMIT 1];
 
         // Set up inputs
         List<ForceLookupFields.Input> inputs = new List<ForceLookupFields.Input>();
-        ForceLookupFields.Input input = new ForceLookupFields.Input();
-        input.childId = testOpportunity.Id;
+        ForceLookupFields.Input input        = new ForceLookupFields.Input();
+        input.childId           = testOpportunity.Id;
         input.relationshipField = 'AccountId';
-        input.parentObjectAPI = 'Account';
-        input.parentKnownField = 'Name';
-        input.parentKnownValue = 'No Account Has This Name';
+        input.parentObjectAPI   = 'Account';
+        input.parentKnownField  = 'Name';
+        input.parentKnownValue  = 'No Account Has This Name';
         inputs.add(input);
 
         // Check current relationship
