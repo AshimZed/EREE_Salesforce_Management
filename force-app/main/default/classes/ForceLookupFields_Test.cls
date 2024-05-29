@@ -1,6 +1,7 @@
 @isTest
 private class ForceLookupFields_Test {
     
+    // Set up test data
     @TestSetup
     static void makeData(){
         
