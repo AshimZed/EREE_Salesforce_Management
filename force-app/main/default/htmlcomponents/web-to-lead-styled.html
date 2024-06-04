@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Page - EERE Small Business Program</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: #333; /* Lighter shade of black */
+      }
+      a {
+        color: #333; /* Lighter shade of black */
+        transition: color 0.3s ease;
+      }
+      a:hover {
+        color: #0056b3; /* Darker shade of blue */
+      }
+      .navbar {
+        background-color: white;
+      }
+      .navbar-brand img {
+        width: 100px;
+        margin-right: 2rem;
+      }
+      .hero-section {
+        background-image: url("https://www.energy.gov/sites/default/files/2019/09/f67/geothermal%20engineer_flopped.jpg");
+        background-size: cover;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        text-align: center;
+        position: relative; /* Add position relative */
+      }
+      .hero-content {
+        color: rgba(50, 50, 50, 0.9); /* Adjust color and opacity */
+        font-weight: bold; /* Make text bold */
+        /* Other styles remain unchanged */
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.1
+        ); /* Adjust opacity here (0.5 means 50% opacity) */
+      }
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 20px;
+      }
+      .form-container,
+      .info-container {
+        width: calc(65% - 20px);
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        margin-top: 20px;
+        background: #f9f9f9;
+      }
+      .info-container {
+        width: calc(37% - 20px); /* Increased width by 5% */
+        background: #ffffff;
+      }
+      .form-container form {
+        padding: 20px;
+        border-radius: 8px;
+      }
+      .form-container h2,
+      .info-container h2 {
+        margin-bottom: 20px;
+      }
+      .form-container label,
+      .info-container p {
+        color: #333;
+      }
+      .form-container input[type="text"],
+      .form-container input[type="email"],
+      .form-container input[type="tel"],
+      .form-container input[type="number"],
+      .form-container select,
+      .form-container textarea {
+        width: calc(100% - 22px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .form-container input[type="submit"] {
+        width: 100%;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .form-container input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+      .info-container img {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .footer {
+        margin-top: 4rem;
+        background-color: #333; /* Nice shade of black */
+        color: #fff; /* White text */
+        padding: 20px;
+        text-align: center;
+      }
+      .footer img {
+        width: 100px; /* Adjust image size as needed */
+        margin-bottom: 10px;
+      }
+      @media screen and (max-width: 768px) {
+        .form-container,
+        .info-container {
+          width: 100%;
+          margin: 20px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a
+          class="navbar-brand"
+          href="https://www.energy.gov/eere/eere-small-business-program"
+        >
+          <img
+            src="https://securesustain.org/wp-content/uploads/2018/02/DOE_Logo_Color.png"
+            alt="Logo"
+          />
+          EERE Small Business Program
+        </a>
+        <div class="navbar-text ml-auto">
+          <a
+            href="https://www.energy.gov/eere/about-office-energy-efficiency-and-renewable-energy"
+            >ABOUT EERE</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>EERE Small Business Program</h1>
+        <p>Explore renewable energy opportunities</p>
+      </div>
+    </section>
+
+    <!-- Split Layout: Form Section and Info Section -->
+    <div class="container">
+      <!-- Form Section -->
+      <div class="form-container">
+        <h2>Registration Form</h2>
+        <form
+          action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dak0000075RI5"
+          method="POST"
+        >
+          <input type="hidden" name="oid" value="00Dak0000075RI5" />
+          <input
+            type="hidden"
+            name="retURL"
+            value="https://www.energy.gov/eere/eere-small-business-program"
+          />
+
+          FOA Number:<input
+            id="00Nak000002bxI8"
+            maxlength="14"
+            name="00Nak000002bxI8"
+            size="20"
+            type="text"
+          /><br />
+
+          <label for="salutation">Salutation</label
+          ><select id="salutation" name="salutation">
+            <option value="">--None--</option>
+            <option value="Mr.">Mr.</option>
+            <option value="Ms.">Ms.</option>
+            <option value="Mrs.">Mrs.</option>
+            <option value="Dr.">Dr.</option>
+            <option value="Prof.">Prof.</option>
+            <option value="Mx.">Mx.</option></select
+          ><br />
+
+          <label for="first_name">First Name</label
+          ><input
+            id="first_name"
+            maxlength="40"
+            name="first_name"
+            size="20"
+            type="text"
+          /><br />
+
+          <label for="last_name">Last Name</label
+          ><input
+            id="last_name"
+            maxlength="80"
+            name="last_name"
+            size="20"
+            type="text"
+          /><br />
+
+          <label for="email">Email</label
+          ><input id="email" maxlength="80" name="email" size="20" type="text" /><br />
+
+          <label for="company">Company</label
+          ><input
+            id="company"
+            maxlength="40"
+            name="company"
+            size="20"
+            type="text"
+          /><br />
+
+          Company NAICS Code:<input
+            id="00Nak000002bxI6"
+            maxlength="8"
+            name="00Nak000002bxI6"
+            size="20"
+            type="text"
+          /><br />
+
+          <label for="employees">Employees</label
+          ><input id="employees" name="employees" size="20" type="text" value="" /><br />
+
+          <label for="revenue">Annual Revenue</label
+          ><input id="revenue" name="revenue" size="20" type="text" /><br />
+
+          Region:<select id="00Nak000002bxIC" name="00Nak000002bxIC" title="Region">
+            <option value="">--None--</option>
+            <option value="Mid-Atlantic">Mid-Atlantic</option>
+            <option value="Mountain">Mountain</option>
+            <option value="New England">New England</option>
+            <option value="North Central">North Central</option>
+            <option value="Pacific">Pacific</option>
+            <option value="South Atlantic">South Atlantic</option>
+            <option value="South Central">South Central</option></select
+          ><br />
+
+          Project Title:<textarea
+            id="00Nak000002bxIB"
+            name="00Nak000002bxIB"
+            type="text"
+            wrap="soft"
+            rows="10"
+          ></textarea
+          ><br />
+
+          Technical Description:<textarea
+            id="00Nak000002bxIEEAY"
+            name="00Nak000002bxIEEAY"
+            rows="10"
+            type="text"
+            wrap="soft"
+          ></textarea
+          ><script>
+            CKEDITOR.timestamp = '4.18.0.11';
+            var protocolAndHost = window.location.protocol + '//' + window.location.host;
+
+            var editor = CKEDITOR.replace('00Nak000002bxIEEAY', {
+              removePlugins:
+                'elementspath,maximize,image,tabletools,liststyle,contextmenu,resize',
+              baseHref: protocolAndHost + '/ckeditor/ckeditor-4.x/rel/',
+              customConfig: '/ckeditor/ckeditor-4.x/rel/sfdc-config.js',
+              height: '225px',
+              bodyId: '00Nak000002bxIEEAY_rta_body',
+              toolbar: 'SalesforceBasic',
+              sfdcLabels: {
+                CkeLineHeight: {
+                  doubleValue: 'Double',
+                  secondValue: '1.15',
+                  singleValue: 'Single',
+                  thirdValue: '1.5',
+                  title: 'Line Height',
+                },
+                CkeCodeBlock: { addCodeSample: 'Add a code sample' },
+                CkeQuickText: { title: 'Insert quick text' },
+                CkeMediaEmbed: {
+                  description:
+                    'Use &lt;iframe&gt; code from an approved video source.',
+                  example:
+                    '\n            \n                &lt;iframe width=\&quot;560\&quot; height=\&quot;315\&quot; src=\&quot;https://www.youtube.com/embed/KcOm0TNvKBA\&quot; frameborder=\&quot;0\&quot; allowfullscreen&gt;&lt;/iframe&gt;\n            \n        ',
+                  exampleTitle: 'Example:',
+                  iframeMissing:
+                    'Invalid &lt;iframe&gt; element. Please use valid code from the approved sites.',
+                  subtitle: 'Paste &amp;lt;iframe&amp;gt; code here:',
+                  title: 'Embed Multimedia Content',
+                },
+                CkeImageMenu: {
+                  pasteUrl: 'Paste Image URL',
+                  title: 'Insert images into your message',
+                  uploadCms: 'Salesforce CMS',
+                  uploadFile: ' Browse or Upload',
+                  uploadSFFile: 'Salesforce Files',
+                  uploadUrl: 'Web Image',
+                },
+                CkeImagePaste: {
+                  CkeImagePasteWarning:
+                    'Pasting an image is not working properly with Firefox, please use [Copy Image location] instead.',
+                },
+                CkeImageDialog: {
+                  btn_insert: 'Insert',
+                  btn_insert_tooltip: 'Insert Image',
+                  btn_upadte: 'Update',
+                  btn_update: 'Update',
+                  btn_update_tooltip: 'Update Image',
+                  defaultImageDescription: 'User-added image',
+                  error: 'Error:',
+                  httpUrlWarning:
+                    'Are you sure you want to use an http URL? Using http image URLs may result in security warnings about insecure content. To avoid these warnings, use https image URLs instead.',
+                  imageUploadLimit_info: 'Max number of upload images exceeded',
+                  infoTab: 'Web Address',
+                  infoTab_desc: 'Description',
+                  infoTab_desc_info:
+                    'Enter a description of the image for visually impaired users',
+                  infoTab_url: 'URL',
+                  infoTab_url_info: 'Example: http://www.mysite.com/myimage.jpg',
+                  invalidUrlError:
+                    'You can only use http:, https:, data:, //, /, or relative URL schemes.',
+                  missingUrlError: 'You must enter a URL',
+                  title: 'Insert Image',
+                  uploadTab: 'Upload Image',
+                  uploadTab_desc: 'Description',
+                  uploadTab_desc_info:
+                    'Enter a description of the image for visually impaired users',
+                  uploadTab_file: 'Select Image',
+                  uploadTab_file_info: 'Maximum size 1 MB. Only PNG, GIF or JPEG',
+                  wrongFileTypeError: 'You can insert only .gif .jpeg and .png files.',
+                },
+                sfdcSwitchToText: { sfdcSwitchToTextAlt: 'Use plain text' },
+                CkeSmartLink: {
+                  SmartLinkContextMenuEdit: 'Edit Smart Link',
+                  title: 'Insert a Smart Link',
+                },
+              },
+              contentsCss: [
+                '/ckeditor/ckeditor-4.x/rel/contents.css',
+                '/sCSS/60.0/sprites/1705602481000/Theme3/default/gc/CKEditor.css',
+                '/sCSS/60.0/sprites/1705602481000/Theme3/default/gc/HtmlDetailElem.css',
+              ],
+              disableNativeSpellChecker: false,
+              language: 'en-US',
+              allowIframe: false,
+              isPardotOrg: false,
+              isCmsOnly: false,
+              sharedSpaces: { top: 'cke_topSpace', bottom: ' cke_bottomSpace' },
+              filebrowserImageUploadUrl:
+                '/_ui/common/request/servlet/RtaImageUploadServlet?_CONFIRMATIONTOKEN=VmpFPSxNakF5TkMwd05pMHdNbFF5TVRvMU9UbzBNQzQwT0RaYSxMb25Ecy1Nc3JRU291QXg3QXBqNG1IbVowSHF1Y1BGMklGcUJlRU5EbGxZPSxOR0ZtTXpjMg==',
+            });
+
+            editor.on('instanceReady', function (evt) {
+              try {
+                var id = evt.editor.name;
+                CKiframe = document
+                  .getElementById('cke_' + id)
+                  .querySelector('iframe');
+                meta = document.createElement('meta');
+                meta.setAttribute('name', 'referrer');
+                meta.setAttribute('content', 'no-referrer');
+                CKiframe.contentDocument.head.appendChild(meta);
+              } catch (e) {}
+            });
+          </script><br />
+
+          Confidentiality Statements:<textarea
+            id="00Nak000002bxI7EAI"
+            name="00Nak000002bxI7EAI"
+            rows="10"
+            type="text"
+            wrap="soft"
+          ></textarea
+          ><script>
+            CKEDITOR.timestamp = '4.18.0.11';
+            var protocolAndHost = window.location.protocol + '//' + window.location.host;
+
+            var editor = CKEDITOR.replace('00Nak000002bxI7EAI', {
+              removePlugins:
+                'elementspath,maximize,image,tabletools,liststyle,contextmenu,resize',
+              baseHref: protocolAndHost + '/ckeditor/ckeditor-4.x/rel/',
+              customConfig: '/ckeditor/ckeditor-4.x/rel/sfdc-config.js',
+              height: '225px',
+              bodyId: '00Nak000002bxI7EAI_rta_body',
+              toolbar: 'SalesforceBasic',
+              sfdcLabels: {
+                CkeLineHeight: {
+                  doubleValue: 'Double',
+                  secondValue: '1.15',
+                  singleValue: 'Single',
+                  thirdValue: '1.5',
+                  title: 'Line Height',
+                },
+                CkeCodeBlock: { addCodeSample: 'Add a code sample' },
+                CkeQuickText: { title: 'Insert quick text' },
+                CkeMediaEmbed: {
+                  description:
+                    'Use &lt;iframe&gt; code from an approved video source.',
+                  example:
+                    '\n            \n                &lt;iframe width=\&quot;560\&quot; height=\&quot;315\&quot; src=\&quot;https://www.youtube.com/embed/KcOm0TNvKBA\&quot; frameborder=\&quot;0\&quot; allowfullscreen&gt;&lt;/iframe&gt;\n            \n        ',
+                  exampleTitle: 'Example:',
+                  iframeMissing:
+                    'Invalid &lt;iframe&gt; element. Please use valid code from the approved sites.',
+                  subtitle: 'Paste &amp;lt;iframe&amp;gt; code here:',
+                  title: 'Embed Multimedia Content',
+                },
+                CkeImageMenu: {
+                  pasteUrl: 'Paste Image URL',
+                  title: 'Insert images into your message',
+                  uploadCms: 'Salesforce CMS',
+                  uploadFile: ' Browse or Upload',
+                  uploadSFFile: 'Salesforce Files',
+                  uploadUrl: 'Web Image',
+                },
+                CkeImagePaste: {
+                  CkeImagePasteWarning:
+                    'Pasting an image is not working properly with Firefox, please use [Copy Image location] instead.',
+                },
+                CkeImageDialog: {
+                  btn_insert: 'Insert',
+                  btn_insert_tooltip: 'Insert Image',
+                  btn_upadte: 'Update',
+                  btn_update: 'Update',
+                  btn_update_tooltip: 'Update Image',
+                  defaultImageDescription: 'User-added image',
+                  error: 'Error:',
+                  httpUrlWarning:
+                    'Are you sure you want to use an http URL? Using http image URLs may result in security warnings about insecure content. To avoid these warnings, use https image URLs instead.',
+                  imageUploadLimit_info: 'Max number of upload images exceeded',
+                  infoTab: 'Web Address',
+                  infoTab_desc: 'Description',
+                  infoTab_desc_info:
+                    'Enter a description of the image for visually impaired users',
+                  infoTab_url: 'URL',
+                  infoTab_url_info: 'Example: http://www.mysite.com/myimage.jpg',
+                  invalidUrlError:
+                    'You can only use http:, https:, data:, //, /, or relative URL schemes.',
+                  missingUrlError: 'You must enter a URL',
+                  title: 'Insert Image',
+                  uploadTab: 'Upload Image',
+                  uploadTab_desc: 'Description',
+                  uploadTab_desc_info:
+                    'Enter a description of the image for visually impaired users',
+                  uploadTab_file: 'Select Image',
+                  uploadTab_file_info: 'Maximum size 1 MB. Only PNG, GIF or JPEG',
+                  wrongFileTypeError: 'You can insert only .gif .jpeg and .png files.',
+                },
+                sfdcSwitchToText: { sfdcSwitchToTextAlt: 'Use plain text' },
+                CkeSmartLink: {
+                  SmartLinkContextMenuEdit: 'Edit Smart Link',
+                  title: 'Insert a Smart Link',
+                },
+              },
+              contentsCss: [
+                '/ckeditor/ckeditor-4.x/rel/contents.css',
+                '/sCSS/60.0/sprites/1705602481000/Theme3/default/gc/CKEditor.css',
+                '/sCSS/60.0/sprites/1705602481000/Theme3/default/gc/HtmlDetailElem.css',
+              ],
+              disableNativeSpellChecker: false,
+              language: 'en-US',
+              allowIframe: false,
+              isPardotOrg: false,
+              isCmsOnly: false,
+              sharedSpaces: { top: 'cke_topSpace', bottom: ' cke_bottomSpace' },
+              filebrowserImageUploadUrl:
+                '/_ui/common/request/servlet/RtaImageUploadServlet?_CONFIRMATIONTOKEN=VmpFPSxNakF5TkMwd05pMHdNbFF5TVRvMU9UbzBNQzQwT0RaYSxMb25Ecy1Nc3JRU291QXg3QXBqNG1IbVowSHF1Y1BGMklGcUJlRU5EbGxZPSxOR0ZtTXpjMg==',
+            });
+
+            editor.on('instanceReady', function (evt) {
+              try {
+                var id = evt.editor.name;
+                CKiframe = document
+                  .getElementById('cke_' + id)
+                  .querySelector('iframe');
+                meta = document.createElement('meta');
+                meta.setAttribute('name', 'referrer');
+                meta.setAttribute('content', 'no-referrer');
+                CKiframe.contentDocument.head.appendChild(meta);
+              } catch (e) {}
+            });
+          </script><br />
+
+          Project Team Information:<textarea
+            id="00Nak000002bxIAEAY"
+            name="00Nak000002bxIAEAY"
+            rows="10"
+            type="text"
+            wrap="soft"
+          ></textarea
+          ><script>
+            CKEDITOR.timestamp = '4.18.0.11';
+            var protocolAndHost = window.location.protocol + '//' + window.location.host;
+
+            var editor = CKEDITOR.replace('00Nak000002bxIAEAY', {
+              removePlugins:
+                'elementspath,maximize,image,tabletools,liststyle,contextmenu,resize',
+              baseHref: protocolAndHost + '/ckeditor/ckeditor-4.x/rel/',
+              customConfig: '/ckeditor/ckeditor-4.x/rel/sfdc-config.js',
+              height: '225px',
+              bodyId: '00Nak000002bxIAEAY_rta_body',
+              toolbar: 'SalesforceBasic',
+              sfdcLabels: {
+                CkeLineHeight: {
+                  doubleValue: 'Double',
+                  secondValue: '1.15',
+                  singleValue: 'Single',
+                  thirdValue: '1.5',
+                  title: 'Line Height',
+                },
+                CkeCodeBlock: { addCodeSample: 'Add a code sample' },
+                CkeQuickText: { title: 'Insert quick text' },
+                CkeMediaEmbed: {
+                  description:
+                    'Use &lt;iframe&gt; code from an approved video source.',
+                  example:
+                    '\n            \n                &lt;iframe width=\&quot;560\&quot; height=\&quot;315\&quot; src=\&quot;https://www.youtube.com/embed/KcOm0TNvKBA\&quot; frameborder=\&quot;0\&quot; allowfullscreen&gt;&lt;/iframe&gt;\n            \n        ',
+                  exampleTitle: 'Example:',
+                  iframeMissing:
+                    'Invalid &lt;iframe&gt; element. Please use valid code from the approved sites.',
+                  subtitle: 'Paste &amp;lt;iframe&amp;gt; code here:',
+                  title: 'Embed Multimedia Content',
+                },
+                CkeImageMenu: {
+                  pasteUrl: 'Paste Image URL',
+                  title: 'Insert images into your message',
+                  uploadCms: 'Salesforce CMS',
+                  uploadFile: ' Browse or Upload',
+                  uploadSFFile: 'Salesforce Files',
+                  uploadUrl: 'Web Image',
+                },
+                CkeImagePaste: {
+                  CkeImagePasteWarning:
+                    'Pasting an image is not working properly with Firefox, please use [Copy Image location] instead.',
+                },
+                CkeImageDialog: {
+                  btn_insert: 'Insert',
+                  btn_insert_tooltip: 'Insert Image',
+                  btn_upadte: 'Update',
+                  btn_update: 'Update',
+                  btn_update_tooltip: 'Update Image',
+                  defaultImageDescription: 'User-added image',
+                  error: 'Error:',
+                  httpUrlWarning:
+                    'Are you sure you want to use an http URL? Using http image URLs may result in security warnings about insecure content. To avoid these warnings, use https image URLs instead.',
+                  imageUploadLimit_info: 'Max number of upload images exceeded',
+                  infoTab: 'Web Address',
+                  infoTab_desc: 'Description',
+                  infoTab_desc_info:
+                    'Enter a description of the image for visually impaired users',
+                  infoTab_url: 'URL',
+                  infoTab_url_info: 'Example: http://www.mysite.com/myimage.jpg',
+                  invalidUrlError:
+                    'You can only use http:, https:, data:, //, /, or relative URL schemes.',
+                  missingUrlError: 'You must enter a URL',
+                  title: 'Insert Image',
+                  uploadTab: 'Upload Image',
+                  uploadTab_desc: 'Description',
+                  uploadTab_desc_info:
+                    'Enter a description of the image for visually impaired users',
+                  uploadTab_file: 'Select Image',
+                  uploadTab_file_info: 'Maximum size 1 MB. Only PNG, GIF or JPEG',
+                  wrongFileTypeError: 'You can insert only .gif .jpeg and .png files.',
+                },
+                sfdcSwitchToText: { sfdcSwitchToTextAlt: 'Use plain text' },
+                CkeSmartLink: {
+                  SmartLinkContextMenuEdit: 'Edit Smart Link',
+                  title: 'Insert a Smart Link',
+                },
+              },
+              contentsCss: [
+                '/ckeditor/ckeditor-4.x/rel/contents.css',
+                '/sCSS/60.0/sprites/1705602481000/Theme3/default/gc/CKEditor.css',
+                '/sCSS/60.0/sprites/1705602481000/Theme3/default/gc/HtmlDetailElem.css',
+              ],
+              disableNativeSpellChecker: false,
+              language: 'en-US',
+              allowIframe: false,
+              isPardotOrg: false,
+              isCmsOnly: false,
+              sharedSpaces: { top: 'cke_topSpace', bottom: ' cke_bottomSpace' },
+              filebrowserImageUploadUrl:
+                '/_ui/common/request/servlet/RtaImageUploadServlet?_CONFIRMATIONTOKEN=VmpFPSxNakF5TkMwd05pMHdNbFF5TVRvMU9UbzBNQzQwT0RaYSxMb25Ecy1Nc3JRU291QXg3QXBqNG1IbVowSHF1Y1BGMklGcUJlRU5EbGxZPSxOR0ZtTXpjMg==',
+            });
+
+            editor.on('instanceReady', function (evt) {
+              try {
+                var id = evt.editor.name;
+                CKiframe = document
+                  .getElementById('cke_' + id)
+                  .querySelector('iframe');
+                meta = document.createElement('meta');
+                meta.setAttribute('name', 'referrer');
+                meta.setAttribute('content', 'no-referrer');
+                CKiframe.contentDocument.head.appendChild(meta);
+              } catch (e) {}
+            });
+          </script><br />
+
+          <input type="submit" name="submit" />
+        </form>
+      </div>
+
+      <!-- Info Section -->
+      <div class="info-container">
+        <h2>Program Information</h2>
+        <p>
+          The Office of Energy Efficiency and Renewable Energy’s (EERE) Small
+          Business Program is designed to help small businesses in the energy
+          industry grow and contribute to the government’s overall energy
+          efficiency goals.
+        </p>
+        <img
+          src="https://ca-times.brightspotcdn.com/dims4/default/7a2e9fb/2147483647/strip/true/crop/8192x5462+0+0/resize/1200x800!/format/webp/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F8e%2F1e%2Fa6b3ead64b329cec6a40fe6c5351%2F1356785-me-1018-daggett-solar-farm-025-ik.jpg"
+          alt="Renewable Energy Image"
+        />
+        <p>
+          For more information about the program, visit<br />
+          <a href="https://www.energy.gov/eere/eere-small-business-program"
+            >EERE Small Business Program</a
+          >
+        </p>
+        <br />
+        <img
+          src="https://www.inventiva.co.in/wp-content/uploads/2021/08/renewable-energy-montage-705444748-Shutterstock_FotoIdee.jpg"
+          alt="Renewable Energy Montage"
+        />
+        <p>
+          To learn how to apply for EERE funding, visit<br />
+          <a
+            href="https://www.energy.gov/eere/funding/how-do-i-apply-eere-funding"
+            >How Do I Apply for EERE Funding?</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <img
+        src="https://www.energy.gov/themes/particle/dist/app-drupal/assets/energy_white.png"
+        alt="Energy Logo"
+      />
+      <p>
+        Office of Energy Efficiency & Renewable Energy<br />
+        Forrestal Building<br />
+        1000 Independence Avenue, SW<br />
+        Washington, DC 20585
+      </p>
+    </footer>
+  </body>
+</html>
