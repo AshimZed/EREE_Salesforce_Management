@@ -24,4 +24,4 @@ The project includes the following key features:
 
 ## Development and Deployment
 
-This project will be developed using Salesforce Developer Edition Orgs. Each team member will use a Scratch Org to build their solutions before deploying to the shared Developer Edition Org. 
+This project will be developed using Salesforce Developer Edition Orgs. Each Team Member will use a Scratch Org to build their solutions before deploying to the shared Developer Edition Org. 
