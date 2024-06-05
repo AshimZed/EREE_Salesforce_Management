@@ -1,0 +1,175 @@
+<template>
+    <section class="slds-var-p-around_large slds-theme_default">
+        <h2 class="slds-text-heading_medium slds-text-align_center slds-var-m-bottom_large">Follow the Steps in the Application Process</h2>
+        <div class="slds-grid slds-wrap slds-grid_pull-padded">
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-5 slds-var-p-around_small">
+                <lightning-card title="Concept Paper Stage" icon-name="utility:attach" class="card">
+                    <div class="slds-var-p-horizontal_medium slds-var-p-vertical_small">
+                        <p class="slds-text-body_regular">Applicants submit concept papers.</p>
+                        <p class="slds-text-body_regular">EERE sends encourage/discourage notifications to applicants.</p>
+                    </div>
+                </lightning-card>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-5 slds-var-p-around_small">
+                <lightning-card title="Full Application Stage" icon-name="utility:edit" class="card">
+                    <div class="slds-var-p-horizontal_medium slds-var-p-vertical_small">
+                        <p class="slds-text-body_regular">Applicants submit full applications.</p>
+                        <p class="slds-text-body_regular">EERE reviews applications and sends reviewer comments to applicants.</p>
+                        <p class="slds-text-body_regular">Applicants submit replies to reviewer comments.</p>
+                    </div>
+                </lightning-card>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-5 slds-var-p-around_small">
+                <lightning-card title="Selection Stage" icon-name="utility:approval" class="card">
+                    <div class="slds-var-p-horizontal_medium slds-var-p-vertical_small">
+                        <p class="slds-text-body_regular">EERE deliberates and selects applications for negotiation.</p>
+                        <p class="slds-text-body_regular">EERE notifies all applicants whether their projects were selected or not selected for negotiation.</p>
+                    </div>
+                </lightning-card>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-5 slds-var-p-around_small">
+                <lightning-card title="Negotiation Stage" icon-name="utility:money" class="card">
+                    <div class="slds-var-p-horizontal_medium slds-var-p-vertical_small">
+                        <p class="slds-text-body_regular">EERE negotiates final project details with selected applicants.</p>
+                        <p class="slds-text-body_regular">EERE Contracting Officer authorizes funding for the award.</p>
+                    </div>
+                </lightning-card>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-5 slds-var-p-around_small">
+                <lightning-card title="Project Performance" icon-name="utility:ribbon" class="card">
+                    <div class="slds-var-p-horizontal_medium slds-var-p-vertical_small">
+                        <p class="slds-text-body_regular">Applicant begins approved project work.</p>
+                        <p class="slds-text-body_regular">EERE provides project oversight.</p>
+                    </div>
+                </lightning-card>
+            </div>
+        </div>
+    </section>
+   <!-- Accordion section -->
+       <section class="slds-var-p-around_large slds-theme_default">
+        <h2 class="slds-text-heading_medium slds-text-align_center slds-var-m-bottom_large">Application Details</h2>
+        <div class="slds-align_absolute-center">
+            <c-concept-application-button></c-concept-application-button>
+        </div>
+         
+        <lightning-accordion>
+            <lightning-accordion-section name="section1" label="Open Funding Opportunities">
+                <p class="slds-var-p-around_medium">Interested applicants will need to download the FOA from EERE Exchange, an EERE web-based application system for financial assistance. Every FOA document includes the following sections:</p>
+                <ul class="slds-list_dotted slds-var-p-left_medium">
+                    <li><strong>Section I:</strong> Provides specific information about the topic areas EERE plans to fund.</li>
+                    <li><strong>Section II:</strong> Outlines the amount of funding available, the duration of projects, and the funding agreement type (e.g., cooperative agreement, grant, etc.).</li>
+                    <li><strong>Section III:</strong> Provides the eligibility and cost-sharing requirements.</li>
+                    <li><strong>Section IV:</strong> Details the submission requirements (e.g., technical volume, budget, etc.).</li>
+                    <li><strong>Section V:</strong> Provides technical criteria that independent third-party reviewers will use to evaluate all applications.</li>
+                    <li><strong>Section VI:</strong> Describes how you will be notified and additional administrative requirements.</li>
+                    <li><strong>Section VII:</strong> Includes EERE contact information.</li>
+                    <li><strong>Section VIII:</strong> Provides important information such as disclosures and your rights to subject inventions and technical data.</li>
+                </ul>
+                <p class="slds-var-p-around_medium">
+                    Read the FOA carefully and follow the submission requirements. If there are any inconsistencies between the FOA and any presentations or DOE staff statements, the FOA takes precedence. Applicants may seek clarification via email from the mailbox identified on the cover page and in Section VII of the FOA document.
+                </p>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section2" label="Required Registrations">
+                <p class="slds-var-p-around_medium">The required registrations can take several weeks, so plan to complete them well in advance of submission deadlines listed on the cover page of the FOA.</p>
+                <p class="slds-var-p-around_medium">To apply for the FOA, <strong>register with ALL of the following systems</strong>:</p>
+                <ul class="slds-list_dotted slds-var-p-left_medium">
+                    <li><strong>System of Award Management (SAM):</strong> Use the <a href="https://sam.gov" target="_blank" class="slds-text-link">SAM Status tracker</a> to verify whether your organization is already registered. New registration requires a notarized letter that identifies an entity administrator, and it takes at least 10 business days to process registrations. This step is not necessary for the concept paper but must be completed before full applications are due.</li>
+                    <li>All entities doing business with the federal government must use a Unique Entity Identifier (UEI). The UEI is a 12-character alphanumeric ID that SAM.gov automatically assigns all registered entities.</li>
+                    <li><strong>Login.gov:</strong> To make the sign-in process more secure, the EERE eXCHANGE has been updated to integrate with Login.gov—a secure service used by the public to sign into participating government agencies. All potential applicants and reviewers must have a Login.gov account to apply to open opportunities.</li>
+                    <li><strong>EERE Exchange:</strong> Submit all application materials through EERE Exchange. Register to apply for the FOA at least 24 hours before the first submission deadline. Applicants will be assigned a control number for use on all application documents. Note: Maximum file size for uploads is 10MB.</li>
+                    <li><strong>Grants.gov:</strong> Create an account to receive email updates for any FOA amendments.</li>
+                    <li><strong>FedConnect:</strong> If an application is selected, you are invited to negotiate an award. Register with FedConnect to accept the award and receive award documents.</li>
+                </ul>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section3" label="Letter of Intent">
+                <p class="slds-var-p-around_medium">A Letter of Intent may be required. It is a web form on <a href="https://eere-exchange.energy.gov/" target="_blank" class="slds-text-link">EERE Exchange</a> and not a letter that needs to be attached and submitted. It should not contain any proprietary or sensitive business information. The FOA outlines the specific requirements and may contain information such as organization type, the project team, and a short 200-word project description.</p>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section4" label="Concept Paper">
+                 <p class="slds-var-p-around_medium">Concept papers may be required to save the time and expense of preparing a full application if the proposed concept does not meet the FOA’s intent.</p>
+                <p class="slds-var-p-around_medium">After submitting a concept paper, applicants are notified via email whether they are “encouraged” or “discouraged” to submit a full application. You may submit a full application even if you receive a notification discouraging you from doing so.</p>
+                <p class="slds-var-p-around_medium">Concept paper requirements are described in the FOA. Typical requirements include the following information:</p>
+                <ul class="slds-list_dotted slds-var-p-left_medium">
+                    <li>Project title</li>
+                    <li>Specific FOA topic area being addressed (if applicable)</li>
+                    <li>The technical and business points of contact</li>
+                    <li>Names of all team member organizations</li>
+                    <li>Any confidentiality statements</li>
+                    <li>A technical description that outlines the proposed technology</li>
+                    <li>The current state of the art and how the research would move that technology forward</li>
+                    <li>The proposed project team and how it will access the necessary equipment and facilities</li>
+                </ul>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section5" label="Full Application">
+                 <p class="slds-var-p-around_medium">If a concept paper is required, applicants typically have at least 30 days from the time EERE posts the encouraged/discouraged notifications on EERE Exchange to submit a full application. If a concept paper is not required, applicants typically have 60 days to submit a full application. Always refer to the deadline date(s) published on the FOA cover page.</p>
+                <p class="slds-var-p-around_medium">Each FOA describes the specific documents to include with the full application submission. Required documents typically include, but may not be limited to, the following:</p>
+                <ul class="slds-list_dotted slds-var-p-left_medium">
+                    <li>Application for Federal Assistance (SF-424)</li>
+                    <li>Technical Volume</li>
+                    <li>Statement of Project Objectives</li>
+                    <li>Budget Justification</li>
+                    <li>Disclosure of Lobbying Activities (SF-LLL)</li>
+                    <li>Project summary/abstract for public release</li>
+                </ul>
+                <p class="slds-var-p-around_medium">Provide one or more of the following documents, if applicable:</p>
+                <ul class="slds-list_dotted slds-var-p-left_medium">
+                    <li>U.S. Manufacturing Plan</li>
+                    <li>Data Management Plan</li>
+                    <li>Contracting Officer Approval if a DOE Federally Funded Research and Development Center is involved</li>
+                    <li>Waiver requests for foreign entities and performance of work outside the United States</li>
+                </ul>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section6" label="Cost Sharing">
+                <p class="slds-p-around_medium">Most recipients must contribute to the project’s total cost. Cost sharing augments federal funding to increase the project’s impact. It also ensures that recipients have a financial stake in the project’s success.</p>
+                <p class="slds-p-around_medium">Generally, research and development projects must provide a minimum of 20% cost share, and demonstration projects must provide a minimum of 50% cost share.</p>
+                <p class="slds-p-around_medium">Provide written assurance of your proposed cost share contributions in full applications. If cost share is being contributed by a third party, it must be verifiable upon submission of the full application.</p>
+                <p class="slds-p-around_medium">Determine how best to allocate the cost share requirement amongst the project team members. The amount contributed by project team members may vary, as long as the project’s cost share requirement  as a whole is met.</p>
+                <p class="slds-p-around_medium">Section III of the FOA contains important information about the cost sharing requirement.</p>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section7" label="Evaluation Process">
+                <p class="slds-p-around_medium">The evaluation process starts with an eligibility review followed by a technical review by independent subject matter experts. This technical review is often referred to as a merit review.</p>
+                <p class="slds-p-around_medium">EERE typically gives applicants an opportunity to respond to the independent reviewers’ comments. If applicable, this process will be outlined in the FOA document. EERE may also invite applicants to a pre-selection interview, which allows EERE to ask questions regarding the proposed project.</p>
+                <p class="slds-p-around_medium">When selecting applications for award negotiation, EERE considers information from required reviews, the program policy factors described in the FOA, and the amount of federal funds available.</p>
+                <p class="slds-p-around_medium">Learn more about <a href="https://www.energy.gov/eere/funding/how-eere-evaluates-funding-applications" class="slds-text-link">how EERE evaluates funding applications</a> or reference <a href="https://www.energy.gov/eere/funding/current-merit-review-guides" class="slds-text-link">current merit review guides for financial assistance</a>.</p>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section8" label="Award Negotiations">
+                <p class="slds-p-around_medium">EERE Exchange sends notifications of award selections by email. A selection notification is not a commitment from EERE to provide funding. Negotiation includes deciding the final scope of work, including project milestones, schedule, and budget.</p>
+                <p class="slds-p-around_medium">Awards may be rescinded if there is no responses to award communications or if applicants miss negotiation deadlines.</p>
+                <p class="slds-p-around_medium">In addition, a Data Management Plan (DMP) may be required. The DMP should, at minimum: (1) describe how the results from the proposed work will be validated if the data are not shared or preserved; and (2) have a plan for making all published data resulting from the proposed work digitally accessible at the time of publication.</p>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section9" label="Period of Performance">
+                <p class="slds-var-p-around_medium">When negotiations are complete and the EERE Contracting Officer approves the award, a start date is established and the project work begins. Projects can run 1–5 years, depending on the FOA and the negotiated scope of work and schedule.</p>
+                <p class="slds-var-p-around_medium">Projects are initially funded for the first budget period, typically 1 year, with future budget periods contingent upon satisfactory performance and EERE’s Go/No-Go decision review.</p>
+                <p class="slds-var-p-around_medium">At the Go/No-Go decision points, EERE will evaluate project performance resulting in one of the following actions: continue the project; recommend redirection of work; place a hold on federal funding for the project; or discontinue funding the project.</p>
+                <p class="slds-var-p-around_medium">The Go/No-Go decision criteria are described in the approved scope of work (Statements of Project Objectives). This federal oversight ensures projects reach their intended objectives, helping protect taxpayer dollars.</p>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section10" label="Rights to Your Work">
+                 <p class="slds-var-p-around_medium">Receiving taxpayer funds to support commercial inventions comes with certain obligations to the public. Rights to intellectual property developed under an award depend on whether the awardee is a domestic small business, university, nonprofit, large or foreign business, or state or local government.</p>
+                <p class="slds-var-p-around_medium">There are many misconceptions about the federal government’s rights over intellectual property developed with federal funding. This overview and the FOA itself will help determine what to do to own the rights to intellectual property developed under the award. The following is intended to dispel some common myths:</p>
+                
+                <p class="slds-var-p-around_medium"><strong>MYTH:</strong> DOE will share an awardee’s proprietary information.</p>
+                <p class="slds-var-p-around_medium"><strong>FACT:</strong> DOE will make every effort to keep proprietary information confidential and not available to the public. In addition, DOE may agree to keep any technical data generated under the award private (i.e., not available to the public) for up to 5 years. Any proprietary data generated with private funding before the award will be protected indefinitely.</p>
+                <p class="slds-var-p-around_medium">In the past, requesters have filed Freedom of Information Act (FOIA) for FOA applications. FOIA requires the government to provide any information or documents upon request.</p>
+                <p class="slds-var-p-around_medium">In that case, DOE may ask an applicant for a copy of the application with proposed redactions of proprietary information. A DOE legal representative will review redactions to ensure that only proprietary items are redacted.</p>
+                
+                <p class="slds-var-p-around_medium"><strong>MYTH:</strong> DOE regularly grants licenses to third parties to use recipients’ inventions.</p>
+                <p class="slds-var-p-around_medium"><strong>FACT:</strong> In reality, DOE has never exercised its “march-in rights” to grant a license to a third party to use an awardee’s invention for payment. These rights may be exercised only if:</p>
+                <ul class="slds-list_dotted slds-var-p-left_medium">
+                    <li>The owner or licensee has not taken or is not expected to take effective steps to achieve practical application of the invention within a reasonable time;</li>
+                    <li>The owner or licensee has not taken action to alleviate health or safety concerns;</li>
+                    <li>The owner has not met federally mandated public use requirements to a reasonable degree; or</li>
+                    <li>The U.S. Manufacturing requirement has not been met.</li>
+                </ul>
+                <p class="slds-var-p-around_medium">If the day comes when march-in rights are warranted, recipients have the right to contest this by presenting evidence and witnesses, confronting witnesses, appearing with counsel, and appealing any adverse decision.</p>
+                
+                <p class="slds-var-p-around_medium"><strong>MYTH:</strong> Recipients will not be allowed to copyright the work produced with a DOE award.</p>
+                <p class="slds-var-p-around_medium"><strong>FACT:</strong> Recipients may copyright the work produced under an award and will own that copyright, but DOE has the license to use it. For example, if a company uses DOE funding to develop and copyright new software, the awardee will hold the copyright, but the government has the right to use the software.</p>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="section11" label="Troubleshooting Your Application">
+                <p class="slds-var-p-around_medium">Email any questions to the FOA-specific email address found on the cover page of the FOA document.</p>
+                <p class="slds-var-p-around_medium">For problems logging on to EERE Exchange or uploading documents, email <a href="EERE-ExchangeSupport@hq.doe.gov">EERE-ExchangeSupport@hq.doe.gov</a>, and include the FOA title and number in the subject line.</p>
+            </lightning-accordion-section>
+        </lightning-accordion>
+    </section>
+
+
+</template>
