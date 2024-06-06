@@ -74,7 +74,13 @@ export default class RegisterCustomerPortalUser extends LightningElement {
         // Prevent default click event action from running
         event.preventDefault();
 
-        console.log('Existing User Button Pushed! Redirect User!');
+        // Redirect the user to the login page
+        this[NavigationMixin.Navigate]({
+            type: 'standard__webPage',
+            attributes: {
+                url: '/login'
+            }
+        });
     }
 
 }

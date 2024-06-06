@@ -17,6 +17,7 @@ private class RegisterCustomerController_Test {
         insert testContact;
     }
 
+    // Test the register user method with valid parameters
     @isTest
     static void testRegisterUser_Success() {
         // Grab the test contact
@@ -38,5 +39,20 @@ private class RegisterCustomerController_Test {
         // Assert the contact is related to the user
         User insertedUser = [SELECT Id FROM User WHERE ContactId = :testContact.Id];
         Assert.isNotNull(insertedUser);
+    }
+
+    // Test the register user method with an invalid access code
+    @isTest
+    static void testRegisterUser_InvalidAccessCode() {
+        
+        // Test the register user method
+        Test.startTest();
+        try {
+            RegisterCustomerController.registerUser('invalidaccesscode', 'testusername', 'testpassword');
+            Assert.fail('Expected an exception');
+        } catch (Exception e) {
+            System.assertEquals('Invalid Access Code', e.getMessage());
+        }
+        Test.stopTest();
     }
 }

@@ -5,9 +5,15 @@ public without sharing class RegisterCustomerController {
         try {
             
             // Find the contact with the access code
-            Contact contact = [SELECT Id, Email, FirstName, LastName, Access_Code__c, AccountId FROM Contact WHERE Access_Code__c = :accessCode LIMIT 1];
+            Contact contact = [SELECT Id, Email, FirstName, LastName, Access_Code__c, Access_Code_Used__c, AccountId FROM Contact WHERE Access_Code__c = :accessCode LIMIT 1];
+
+            // Check if the contact exists
             if(contact == null){
                 throw new AuraHandledException('Invalid Access Code');
+            }
+            // Check if the access code has been used
+            else if (contact.Access_Code_Used__c){
+                throw new AuraHandledException('Access Code already used');
             }
 
             // Create a new user
@@ -25,6 +31,10 @@ public without sharing class RegisterCustomerController {
 
             // Create the user in the community
             Site.createExternalUser(user, contact.AccountId, password);
+
+            // Update the contact
+            contact.Access_Code_Used__c = true;
+            update contact;
 
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
