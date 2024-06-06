@@ -1,0 +1,51 @@
+<template>
+    <div class="slds-grid">
+        <div class="slds-size_1-of-3"></div>
+        <div class="slds-size_1-of-3">
+            <lightning-card>
+                <div class="slds-var-p-around_small lgc-bg">
+                    <lightning-input 
+                        type="text" 
+                        label="Access Code:" 
+                        placeholder="type here..." 
+                        required 
+                        onchange={accessCodeChanged}
+                    ></lightning-input>
+                </div>
+                <div class="slds-var-p-around_small lgc-bg">
+                    <lightning-input 
+                        type="text" 
+                        label="Username:" 
+                        placeholder="type here..." 
+                        required 
+                        onchange={userNameChanged}
+                    ></lightning-input>
+                </div>
+                <div class="slds-var-p-around_small lgc-bg">
+                    <lightning-input 
+                        type="text" 
+                        label="Password:" 
+                        placeholder="type here..." 
+                        required 
+                        onchange={passwordChanged}
+                    ></lightning-input>
+                </div>
+                <div class="slds-align_absolute-center">
+                    <lightning-button 
+                        variant="brand" 
+                        label="Register" 
+                        onclick={handleRegisterClick}
+                        disabled={disableButton} 
+                        class="slds-var-m-left_x-small slds-var-p-horizontal_small"
+                    ></lightning-button>
+                    <lightning-button 
+                        label="Existing User" 
+                        onclick={handleExisterUserClick} 
+                        class="slds-var-m-left_x-small slds-var-p-horizontal_small"
+                    ></lightning-button>
+                </div>
+            </lightning-card>
+        </div>
+        <div class="slds-size_1-of-3"></div>
+    </div>
+</template>
