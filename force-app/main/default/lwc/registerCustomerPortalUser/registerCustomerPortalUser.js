@@ -1,7 +1,8 @@
 import registerUser from '@salesforce/apex/RegisterCustomerController.registerUser';
-import { LightningElement, wire } from 'lwc';
+import { LightningElement } from 'lwc';
+import { NavigationMixin } from 'lightning/navigation';
 
-export default class RegisterCustomerPortalUser extends LightningElement {
+export default class RegisterCustomerPortalUser extends NavigationMixin(LightningElement) {
 
     disableButton = true; // Controls if the button can be pressed
 
@@ -75,12 +76,12 @@ export default class RegisterCustomerPortalUser extends LightningElement {
         event.preventDefault();
 
         // Redirect the user to the login page
-        this[NavigationMixin.Navigate]({
-            type: 'standard__webPage',
-            attributes: {
-                url: '/login'
-            }
-        });
+            this[NavigationMixin.Navigate]({
+                type: 'standard__webPage',
+                attributes: {
+                    url: '/login'
+                }
+            });
     }
 
 }
