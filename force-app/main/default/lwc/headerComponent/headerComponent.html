@@ -1,15 +1,16 @@
 <template>
     <nav class="slds-grid slds-grid_align-spread">
         <div class="slds-grid slds-grid_vertical-align-center">
-            <a class="slds-grid slds-grid_vertical-align-center slds-text-heading_small" href="#">
+            <div class="slds-grid slds-grid_vertical-align-center slds-text-heading_small">
                 <img src={logo} alt="Logo" class="slds-m-right_medium" style="width: 3.5rem;" />
                 <span class="slds-text-heading_medium" style="font-weight:400">Department of Energy</span>
-            </a>
+            </div>
         </div>
         <div class="slds-grid slds-grid_vertical-align-center">
-            <a href="#" class="slds-button slds-var-m-right_x-large" style="color: inherit">Login/Register</a>
             <c-log-out-button class="slds-var-p-horizontal_small"></c-log-out-button>
-            <a href="https://www.energy.gov/eere/about-office-energy-efficiency-and-renewable-energy" class="slds-button" style="color: inherit">About EERE</a>
+            <c-register-button class="slds-var-p-horizontal_small"></c-register-button>
+            <c-login-button class="slds-var-p-horizontal_small"></c-login-button>
+            <c-about-button class="slds-var-p-horizontal_small"></c-about-button>
         </div>
     </nav>
 </template>

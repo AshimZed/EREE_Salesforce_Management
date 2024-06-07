@@ -2,19 +2,19 @@ import { LightningElement } from 'lwc';
 import isGuest from '@salesforce/user/isGuest';
 import { NavigationMixin } from 'lightning/navigation';
 
-export default class LogOutButton extends NavigationMixin(LightningElement) {
+export default class RegisterButton extends NavigationMixin(LightningElement) {
 
     get isGuest() {
         return isGuest;
     }
 
-    handleLogOut() {
+    handleRegister() {
 
-        // Redirect the user to the login page
+        // Redirect the user to the Self Register page
         this[NavigationMixin.Navigate]({
-            type: 'comm__logoutPage',
+            type: 'standard__webPage',
             attributes: {
-                url: '/secur/logout.jsp'
+                url: '/SelfRegister'
             }
         });
     }
