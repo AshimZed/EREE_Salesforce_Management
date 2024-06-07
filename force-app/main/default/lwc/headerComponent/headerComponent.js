@@ -1,6 +1,6 @@
 import { LightningElement } from 'lwc';
-import doeLogo from '@salesforce/resourceUrl/doe_logo';
+import DOE_LOGO from '@salesforce/resourceUrl/doe_logo';
 
 export default class HeaderComponent extends LightningElement {
-    logo = doeLogo;
+    logo = DOE_LOGO;
 }
