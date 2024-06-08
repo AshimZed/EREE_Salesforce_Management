@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Department of Energy Projects" icon-name="standard:job_profile">
+        <!-- Display the datatable with filtered projects and dynamic columns -->
+        <template if:true={filteredProjects}>
+            <lightning-datatable
+                key-field="id"
+                data={filteredProjects}
+                columns={dynamicColumns}
+                hide-checkbox-column="true"
+                class="custom-data-table">
+            </lightning-datatable>
+        </template>
+        <!-- Display a message if no projects are found -->
+        <template if:true={noProjects}>
+            <p>No projects found.</p>
+        </template>
+    </lightning-card>
+</template>
