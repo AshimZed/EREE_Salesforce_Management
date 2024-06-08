@@ -16,6 +16,7 @@ public without sharing class RegisterCustomerController {
             // Create a new user
             User user = new User(
                 Username = FormatUsername.formatUsername(userName),
+                CommunityNickname = contact.FirstName.substring(0, 1) + contact.LastName.substring(0, 7) + DateTime.now().format('yyyyMMddHHmmss'),
                 FirstName = contact.FirstName,
                 LastName = contact.LastName,
                 ContactId = contact.Id,
@@ -27,14 +28,16 @@ public without sharing class RegisterCustomerController {
                 EmailEncodingKey = 'UTF-8',
                 ProfileId = [SELECT Id FROM Profile WHERE Name = 'Customer Community User'].Id
             );
-            insert user;
+            // insert user;
 
             // Create the user in the community
-            Site.createExternalUser(user, contact.AccountId, password);
+            Id portalId = Site.createExternalUser(user, contact.AccountId, password);
 
             // Update the contact
-            contact.Access_Code_Used__c = true;
-            update contact;
+            if (portalId != null) {
+                contact.Access_Code_Used__c = true;
+                update contact;
+            }
 
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
