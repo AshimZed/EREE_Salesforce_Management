@@ -9,13 +9,7 @@ export default class LogOutButton extends NavigationMixin(LightningElement) {
     }
 
     handleLogOut() {
-
-        // Redirect the user to the login page
-        this[NavigationMixin.Navigate]({
-            type: 'comm__logoutPage',
-            attributes: {
-                url: '/secur/logout.jsp'
-            }
-        });
+        // Log out the user 
+        window.location.href = 'https://skillstorm-8d-dev-ed.develop.my.site.com/secur/logout.jsp';
     }
 }
