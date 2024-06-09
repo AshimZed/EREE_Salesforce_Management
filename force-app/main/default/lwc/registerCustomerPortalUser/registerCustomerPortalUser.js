@@ -49,24 +49,17 @@ export default class RegisterCustomerPortalUser extends NavigationMixin(Lightnin
                 accessCode: this.accessCode, 
                 userName: this.userName, 
                 password: this.password
+            }).then((result) => {
+                // Handle the result of the registerUser call
+                console.log('Registration successful:', result);
+                window.location.href = result;
             });
 
-            // Redirect the user to the login page
-            this[NavigationMixin.Navigate]({
-                type: 'standard__webPage',
-                attributes: {
-                    url: '/login'
-                }
-            });
-            
-            console.log('Registration successful:', result);
+
         } catch (error) {
             // Handle any errors that occur during the registerUser call
             console.error('Registration failed:', error);
         }
-
-        console.log(`Access Code: ${this.accessCode}\nUsername: ${this.userName}\nPassword: ${this.password}`);
-
     }
 
     // Handle Existing User Button

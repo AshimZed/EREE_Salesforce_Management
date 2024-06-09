@@ -1,7 +1,7 @@
 public without sharing class RegisterCustomerController {
 
     @AuraEnabled
-    public static void registerUser(String accessCode, String userName, String password){
+    public static String registerUser(String accessCode, String userName, String password){
 
         try {
             
@@ -14,30 +14,34 @@ public without sharing class RegisterCustomerController {
             }
 
             // Create a new user
-            User user = new User(
-                Username = FormatUsername.formatUsername(userName),
-                CommunityNickname = contact.FirstName.substring(0, 1) + contact.LastName.substring(0, 7) + DateTime.now().format('yyyyMMddHHmmss'),
-                FirstName = contact.FirstName,
-                LastName = contact.LastName,
-                ContactId = contact.Id,
-                Email = contact.Email,
-                Alias = contact.FirstName.substring(0, 1) + contact.LastName.substring(0, 7),
-                TimeZoneSidKey = 'America/Los_Angeles',
-                LocaleSidKey = 'en_US',
-                LanguageLocaleKey = 'en_US',
-                EmailEncodingKey = 'UTF-8',
-                ProfileId = [SELECT Id FROM Profile WHERE Name = 'Customer Community User'].Id
-            );
-            // insert user;
+            User u = new User();
+            u.Username = FormatUsername.formatUsername(userName);
+            u.CommunityNickname = userName;
+            u.FirstName = contact.FirstName;
+            u.LastName = contact.LastName;
+            u.ContactId = contact.Id;
+            u.Email = contact.Email;
+            u.ProfileId = [SELECT Id FROM Profile WHERE Name = 'Customer Community User'].Id;
 
             // Create the user in the community
-            Id portalId = Site.createExternalUser(user, contact.AccountId, password);
+            String portalId = Site.createExternalUser(u, contact.AccountId, password);
 
             // Update the contact
             if (portalId != null) {
                 contact.Access_Code_Used__c = true;
                 update contact;
             }
+
+            // Log the user in
+            String startUrl = System.Label.customerPortal;
+            ApexPages.PageReference pageRef = Site.login(
+                FormatUsername.formatUsername(userName), 
+                password, 
+                startUrl
+            );
+
+            // Return the URL
+            return pageRef.getUrl();
 
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
