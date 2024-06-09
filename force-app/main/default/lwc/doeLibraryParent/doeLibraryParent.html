@@ -1,0 +1,12 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <!-- Include the search component and listen for the search and toggle events -->
+        <div class="slds-col slds-p-horizontal_xx-small slds-size_1-of-4">
+            <c-doe-project-library-search onsearch={handleSearch} ontoggle={handleToggle}></c-doe-project-library-search>
+        </div>
+        <!-- Include the library component and pass the search term and selected columns as properties -->
+        <div class="slds-col slds-size_3-of-4">
+            <c-doe-project-library search-term={searchTerm} selected-columns={selectedColumns}></c-doe-project-library>
+        </div>
+    </div>
+</template>

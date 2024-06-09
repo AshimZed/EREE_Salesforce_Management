@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Search Projects">
+        <div class="slds-var-m-around_medium">
+            <!-- Search Input -->
+            <lightning-input class="slds-var-m-bottom_medium"
+                label="Search Term"
+                type="search"
+                onchange={handleSearch}
+            ></lightning-input>
+            <!-- Submit Button -->
+            <lightning-button class="slds-var-m-top_medium" 
+                label="Submit"
+                onclick={handleSubmit}
+            ></lightning-button>
+        </div>
+        <!-- Toggleable Options -->
+        <div class="slds-var-m-around_medium">
+            <h3>Select columns to display:</h3>
+            <div class="slds-button-group slds-var-m-top_small">
+                <template for:each={allColumns} for:item="column">
+                    <lightning-button 
+                        key={column.value} 
+                        data-id={column.value} 
+                        onclick={handleToggleColumn}
+                        class="slds-m-right_x-small slds-m-bottom_x-small"
+                        variant={column.variant}
+                        label={column.label}
+                    >
+                        <lightning-icon icon-name={column.icon} size="xx-small" alternative-text={column.label} class="slds-m-right_x-small"></lightning-icon>
+                    </lightning-button>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>
