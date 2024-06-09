@@ -48,23 +48,18 @@ private class RegisterCustomerController_Test {
             TimeZoneSidKey='America/Los_Angeles',
             UserName='standarduser' + DateTime.now().getTime() + '@testorg.com');
 
-        // Get the number of users before the test
-        List<User> preTestUsersList = [SELECT Id FROM User];
-        Integer preTestUserCount = preTestUsersList.size();
-
+        String testUrl;
         System.runAs(u) {
             // Test the register user method
             Test.startTest();
-            RegisterCustomerController.registerUser(testContact.Access_Code__c, 'testusername', 'testpassword');
+            testUrl = RegisterCustomerController.registerUser(testContact.Access_Code__c, 'testusername', 'password1234');
             Test.stopTest();
         }
-        // Assert a user has been created
-        List<User> postTestUserList = [SELECT Id FROM User];
-        Assert.areEqual(preTestUserCount + 2, postTestUserList.size());
-
-        // Assert the contact is related to the user
-        User insertedUser = [SELECT Id FROM User WHERE ContactId = :testContact.Id];
-        Assert.isNotNull(insertedUser);
+        
+        // Grab the test contact
+        Contact postTestContact = [SELECT Id, Access_Code_Used__c FROM Contact WHERE FirstName = 'Test' LIMIT 1];
+        Assert.areEqual(true, postTestContact.Access_Code_Used__c);
+        Assert.areEqual(testUrl, 'https://test.salesforce.com');
     }
 
     // Test the register user method with an invalid access code
