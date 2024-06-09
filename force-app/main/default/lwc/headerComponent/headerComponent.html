@@ -7,9 +7,13 @@
             </div>
         </div>
         <div class="slds-grid slds-grid_vertical-align-center">
-            <c-log-out-button class="slds-var-p-horizontal_small"></c-log-out-button>
-            <c-register-button class="slds-var-p-horizontal_small"></c-register-button>
-            <c-login-button class="slds-var-p-horizontal_small"></c-login-button>
+            <template if:false={isGuest}>
+                <c-log-out-button class="slds-var-p-horizontal_small"></c-log-out-button>
+            </template>
+            <template if:true={isGuest}>
+                <c-register-button class="slds-var-p-horizontal_small"></c-register-button>
+                <c-login-button class="slds-var-p-horizontal_small"></c-login-button>
+            </template>
             <c-about-button class="slds-var-p-horizontal_small"></c-about-button>
         </div>
     </nav>
