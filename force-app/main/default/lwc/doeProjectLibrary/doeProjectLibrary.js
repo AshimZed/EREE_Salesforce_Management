@@ -25,12 +25,13 @@ export default class DoeProjectLibrary extends LightningElement {
     ];
 
     // Fetch energy projects from Apex
-    @wire(getEnergyProjects)
+    @wire(getEnergyProjects, { searchTerm: '$searchTerm' })
     wiredEnergyProjects({ error, data }) {
         if (data) {
             this.energyProjects = data;  // Store the fetched data
             this.filterProjects();  // Filter the projects based on the search term
             this.error = undefined;
+    
         } else if (error) {
             this.error = error;  // Store the error message
             this.energyProjects = undefined;
@@ -46,6 +47,7 @@ export default class DoeProjectLibrary extends LightningElement {
                     value.toString().toLowerCase().includes(this.searchTerm.toLowerCase())
                 );
             });
+            
         } else {
             this.filteredProjects = this.energyProjects;  // If no search term, display all projects
         }

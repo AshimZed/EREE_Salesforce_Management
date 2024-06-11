@@ -1,0 +1,10 @@
+.column-button {
+    display: inline-block;
+    margin-bottom: 0.5rem; /* Adjust as necessary */
+}
+
+.slds-button-group.slds-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; /* Adjust the gap between buttons */
+}

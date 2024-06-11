@@ -16,13 +16,13 @@
         <!-- Toggleable Options -->
         <div class="slds-var-m-around_medium">
             <h3>Select columns to display:</h3>
-            <div class="slds-button-group slds-var-m-top_small">
+            <div class="slds-button-group slds-wrap slds-m-top_small">
                 <template for:each={allColumns} for:item="column">
                     <lightning-button 
                         key={column.value} 
                         data-id={column.value} 
                         onclick={handleToggleColumn}
-                        class="slds-m-right_x-small slds-m-bottom_x-small"
+                        class="slds-m-right_x-small slds-m-bottom_x-small column-button"
                         variant={column.variant}
                         label={column.label}
                     >
