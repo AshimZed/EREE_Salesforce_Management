@@ -1,4 +1,4 @@
-public with sharing class CompanyPortalController {
+public without sharing class CompanyPortalController {
 
     // Get the company information for the current user
     @AuraEnabled(cacheable=true)
