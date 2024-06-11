@@ -6,7 +6,7 @@ public without sharing class LoginCustomerController {
         String startUrl = System.Label.customerPortal;
         String returnUrl;
         if (Test.isRunningTest()) { returnUrl = 'https://test.salesforce.com'; }
-        else { returnUrl = Site.login(userName, password, startUrl).getUrl(); }
+        else { returnUrl = Site.login(FormatUsername.formatUsername(userName), password, startUrl).getUrl(); }
 
         // Return the URL
         return returnUrl;
