@@ -1,4 +1,4 @@
-import { LightningElement, track, api } from 'lwc';
+import { LightningElement, track} from 'lwc';
 
 export default class DoeProjectLibrarySearch extends LightningElement {
     @track searchTerm = '';  // To store the search term entered by the user
@@ -12,11 +12,11 @@ export default class DoeProjectLibrarySearch extends LightningElement {
 
     // Available columns to display with icons
     allColumns = [
-        { label: 'Title', value: 'title', icon: 'standard:text' },
-        { label: 'Description', value: 'description', icon: 'standard:description' },
-        { label: 'Bureau', value: 'bureau', icon: 'standard:account' },
-        { label: 'Program Code', value: 'programCode', icon: 'standard:task' },
-        { label: 'Keyword(s)', value: 'keyword', icon: 'standard:topic' }
+        { label: 'Title', value: 'title'},
+        { label: 'Description', value: 'description'},
+        { label: 'Bureau', value: 'bureau'},
+        { label: 'Program Code', value: 'programCode'},
+        { label: 'Keyword(s)', value: 'keyword'}
     ];
 
     // Handle input change and store the search term
@@ -32,6 +32,7 @@ export default class DoeProjectLibrarySearch extends LightningElement {
                 selectedColumns: this.selectedColumns
             }
         });
+       
         this.dispatchEvent(searchEvent);  // Dispatch the custom event
     }
 
