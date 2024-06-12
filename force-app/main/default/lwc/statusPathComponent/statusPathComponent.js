@@ -1,51 +1,46 @@
-import { LightningElement, track, wire } from 'lwc';
+import { LightningElement, wire } from 'lwc';
 import getApplication from '@salesforce/apex/CompanyPortalController.getApplication';
+import Id from '@salesforce/user/Id';
 
 export default class StatusPathComponent extends LightningElement {
-    @track applications;
-    @track stages = [
-        { label: 'Concept Paper', value: 'Concept Paper' },
-        { label: 'Full Application', value: 'Full Application' },
-        { label: 'Unqualified', value: 'Unqualified' },
-        { label: 'Nurturing', value: 'Nurturing' },
-        { label: 'Closed', value: 'Closed' }
+    userId = Id;
+    application;
+    stages = [
+        { label: 'Concept Paper', value: 'Concept Paper', selected: false, class: 'slds-path__item', tabindex: -1 },
+        { label: 'Full Application', value: 'Full Application', selected: false, class: 'slds-path__item', tabindex: -1 },
+        { label: 'Selection Stage', value: 'Selection', selected: false, class: 'slds-path__item', tabindex: -1 },
+        { label: 'Negotiation', value: 'Negotiation', selected: false, class: 'slds-path__item', tabindex: -1 },
+        { label: 'Project Performance', value: 'Project Performance', selected: false, class: 'slds-path__item', tabindex: -1 }
     ];
-    @track currentStage;
-    @track currentStageLabel;
+    currentStage;
+    currentStageLabel;
 
-    @wire(getApplication)
+    @wire(getApplication, { userId: '$userId' })
     wiredApplications({ error, data }) {
         if (data) {
-            this.applications = data;
-            if (this.applications.length > 0) {
-                this.currentStage = this.applications[0].Stage__c; // Assume using the first application's stage for this example
-                this.updateStages();
-            }
+            this.currentStage = data.Stage__c;
+            this.updateStages();
         } else if (error) {
             console.error(error);
         }
     }
 
-    handleStageClick(event) {
-        this.currentStage = event.currentTarget.dataset.id;
-        this.updateStages();
-        console.log('Stage clicked: ', this.currentStage);
-    }
-
     updateStages() {
+        let foundCurrentStage = false;
         this.stages = this.stages.map(stage => {
             let stageClass = 'slds-path__item';
             if (stage.value === this.currentStage) {
                 stageClass += ' slds-is-current slds-is-active';
                 stage.selected = true;
                 stage.tabindex = 0;
+                foundCurrentStage = true;
             } else {
                 stage.selected = false;
                 stage.tabindex = -1;
-                if (this.stages.findIndex(s => s.value === this.currentStage) > this.stages.findIndex(s => s.value === stage.value)) {
-                    stageClass += ' slds-is-complete';
-                } else {
+                if (foundCurrentStage) {
                     stageClass += ' slds-is-incomplete';
+                } else {
+                    stageClass += ' slds-is-complete';
                 }
             }
             return {
@@ -63,11 +58,6 @@ export default class StatusPathComponent extends LightningElement {
                 class: this.getPathClass(stage.value)
             };
         });
-    }
-
-    markComplete() {
-        console.log('Marking current stage as complete');
-        // Here you can add your logic to mark the stage as complete, e.g., update the backend
     }
 
     getPathClass(stageValue) {
