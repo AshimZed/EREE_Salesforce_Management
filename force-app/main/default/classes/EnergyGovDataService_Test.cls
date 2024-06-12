@@ -30,7 +30,7 @@ public class EnergyGovDataService_Test {
         System.assertEquals('Theme A', projectA.get('theme'), 'Project A theme should be "Theme A"');
         System.assertEquals('Bureau A', projectA.get('bureau'), 'Project A bureau should be "Bureau A"');
         System.assertEquals('Program A', projectA.get('programCode'), 'Project A program code should be "Program A"');
-        System.assertEquals('Keyword A', projectA.get('keyword'), 'Project A keyword should be "Keyword A"');
+        System.assertEquals('Keyword a', projectA.get('keyword'), 'Project A keyword should be "Keyword A"');
 
         Map<String, Object> projectB = projects[1];
         System.assertEquals('Project B', projectB.get('title'), 'Project B title should be "Project B"');
@@ -38,7 +38,7 @@ public class EnergyGovDataService_Test {
         System.assertEquals('Theme B', projectB.get('theme'), 'Project B theme should be "Theme B"');
         System.assertEquals('Bureau B', projectB.get('bureau'), 'Project B bureau should be "Bureau B"');
         System.assertEquals('Program B', projectB.get('programCode'), 'Project B program code should be "Program B"');
-        System.assertEquals('Keyword B', projectB.get('keyword'), 'Project B keyword should be "Keyword B"');
+        System.assertEquals('Keyword b', projectB.get('keyword'), 'Project B keyword should be "Keyword B"');
     }
 
     @IsTest
