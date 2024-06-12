@@ -25,4 +25,31 @@ public without sharing class CompanyPortalController {
                         Technical_Contact__c, Technical_Description__c FROM Application__c WHERE Company__c = :contact.AccountId LIMIT 1];
     }
 
+    @AuraEnabled
+    public static void updateApplication(Map<String, Object> fields) {
+        Id recordId = (Id) fields.remove('Id');
+        
+        // Add debug statement
+        System.debug('Record ID: ' + recordId);
+        if (recordId == null) {
+            throw new AuraHandledException('Record ID is missing.');
+        }
+        
+        List<Application__c> apps = [SELECT Id FROM Application__c WHERE Id = :recordId LIMIT 1];
+        
+        // Add debug statement
+        System.debug('Fetched Application: ' + apps);
+
+        if (apps.isEmpty()) {
+            throw new AuraHandledException('No application found with the provided ID.');
+        }
+        
+        Application__c app = apps[0];
+
+        for (String key : fields.keySet()) {
+            app.put(key, fields.get(key));
+        }
+        update app;
+    }
+
 }
