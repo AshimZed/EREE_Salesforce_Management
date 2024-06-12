@@ -19,7 +19,7 @@ export default class UserAndCompanyInfo extends LightningElement {
     wiredUser({error, data}) {
         if(data) {
             this.name = data.Name;
-            this.userName = data.Username;
+            this.userName = data.Username.substring(0, data.Username.indexOf('@'));
         } else if(error) {
             console.error(error);
         }
