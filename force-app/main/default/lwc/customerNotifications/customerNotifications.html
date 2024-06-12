@@ -1,11 +1,5 @@
 <template>
-    <lightning-card>
-        <h3 slot="title">
-            <span class="slds-icon_container slds-icon-standard-announcement slds-var-m-around_x-small" title="announcement">
-                <lightning-icon icon-name="standard:announcement" size="small"></lightning-icon>
-            </span>
-            Unread Notifications
-        </h3>
+    <lightning-card title="Unread Notifications" icon-name="standard:announcement" >
         <div class="slds-align_absolute-center">
             <ul>
                 <template for:each={notificationsToDisplay} for:item="notification">
