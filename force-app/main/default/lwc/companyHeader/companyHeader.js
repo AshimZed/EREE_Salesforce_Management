@@ -17,7 +17,7 @@ export default class CompanyHeader extends LightningElement {
             this.user = data;
             this.userName = this.user.Name;
         } else if (error) {
-            this.error = error;
+            console.error(error);
         }
     }
 
@@ -27,7 +27,7 @@ export default class CompanyHeader extends LightningElement {
             this.company = data;
             this.companyName = this.company.Name;
         } else if (error) {
-            this.error = error;
+            console.error(error);
         }
     }
 }
