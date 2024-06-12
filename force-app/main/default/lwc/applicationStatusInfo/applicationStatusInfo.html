@@ -1,0 +1,152 @@
+<template>
+    <lightning-card title="Application" icon-name="standard:account_info">
+        <div class="slds-p-around_medium">
+            <div class="slds-grid slds-wrap slds-gutters">
+                <!-- Left Column -->
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-card>
+                        <div class="slds-var-p-around_small">
+                            <div class="slds-box slds-theme_default slds-var-m-bottom_medium">
+                                <span class="slds-text-body_regular">Status: <strong>{stage}</strong></span>
+                            </div>
+                            <div class="slds-box slds-theme_default slds-var-m-bottom_medium">
+                                <span class="slds-text-body_regular">FOA: <strong>{foa}</strong></span>
+                            </div>
+                        </div>
+                    </lightning-card>
+                </div>
+                <!-- Right Column -->
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-card>
+                        <div class="slds-var-p-around_small">
+                            <div class="slds-box slds-theme_default slds-var-m-bottom_medium">
+                                <span class="slds-text-body_regular">Budget: <strong>{budget}</strong></span>
+                            </div>
+                            <div class="slds-box slds-theme_default slds-var-m-bottom_medium">
+                                <span class="slds-text-body_regular">Submission Date: <strong>{subDate}</strong></span>
+                            </div>
+                        </div>
+                    </lightning-card>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+    <br>
+ <lightning-card title="Detailed Information" icon-name="standard:folder">
+        <div class="slds-var-p-around_medium">
+            <div class="slds-grid slds-wrap">
+                
+                <div class="slds-col slds-size_1-of-1 slds-box slds-theme_default slds-var-m-bottom_medium">
+                    <div class="slds-grid slds-grid_align-spread slds-col">
+                        <p><strong>Project Title:</strong></p>
+                        <lightning-icon icon-name="utility:edit" size="xx-small" alternative-text="Edit" onclick={toggleEditMode}></lightning-icon>
+                    </div>
+                    <span>
+                        <template if:true={isEditMode}>
+                            <lightning-input value={projTitle} onchange={handleChange} data-id="projTitle"></lightning-input>
+                        </template>
+                        <template if:false={isEditMode}>
+                            {projTitle}
+                        </template>
+                    </span>
+                </div>
+
+                <div class="slds-col slds-size_1-of-1 slds-box slds-theme_default slds-var-m-bottom_medium">
+                    <div class="slds-grid slds-grid_align-spread slds-col">
+                        <p><strong>Public Release Abstract:</strong></p>
+                        <lightning-icon icon-name="utility:edit" size="xx-small" alternative-text="Edit" onclick={toggleEditMode}></lightning-icon>
+                    </div>
+                    <span>
+                        <template if:true={isEditMode}>
+                            <lightning-textarea value={publicRelease} onchange={handleChange} data-id="publicRelease"></lightning-textarea>
+                        </template>
+                        <template if:false={isEditMode}>
+                            <lightning-formatted-rich-text value={publicRelease}></lightning-formatted-rich-text>
+                        </template>
+                    </span>
+                </div>
+
+                <div class="slds-col slds-size_1-of-1 slds-box slds-theme_default slds-var-m-bottom_medium">
+                    <div class="slds-grid slds-grid_align-spread slds-col">
+                        <p><strong>Statement of Project Objective:</strong></p>
+                        <lightning-icon icon-name="utility:edit" size="xx-small" alternative-text="Edit" onclick={toggleEditMode}></lightning-icon>
+                    </div>
+                    <span>
+                        <template if:true={isEditMode}>
+                            <lightning-textarea value={statementObj} onchange={handleChange} data-id="statementObj"></lightning-textarea>
+                        </template>
+                        <template if:false={isEditMode}>
+                            <lightning-formatted-rich-text value={statementObj}></lightning-formatted-rich-text>
+                        </template>
+                    </span>
+                </div>
+
+                <div class="slds-col slds-size_1-of-1 slds-box slds-theme_default slds-var-m-bottom_medium">
+                    <div class="slds-grid slds-grid_align-spread slds-col">
+                        <p><strong>Technical Description:</strong></p>
+                        <lightning-icon icon-name="utility:edit" size="xx-small" alternative-text="Edit" onclick={toggleEditMode}></lightning-icon>
+                    </div>
+                    <span>
+                        <template if:true={isEditMode}>
+                            <lightning-textarea value={TechDescription} onchange={handleChange} data-id="TechDescription"></lightning-textarea>
+                        </template>
+                        <template if:false={isEditMode}>
+                            <lightning-formatted-rich-text value={TechDescription}></lightning-formatted-rich-text>
+                        </template>
+                    </span>
+                </div>
+
+                <div class="slds-col slds-size_1-of-1 slds-box slds-theme_default slds-var-m-bottom_medium">
+                    <div class="slds-grid slds-grid_align-spread slds-col">
+                        <p><strong>Budget Justification:</strong></p>
+                        <lightning-icon icon-name="utility:edit" size="xx-small" alternative-text="Edit" onclick={toggleEditMode}></lightning-icon>
+                    </div> 
+                    <span>
+                        <template if:true={isEditMode}>
+                            <lightning-textarea value={budgetJustification} onchange={handleChange} data-id="budgetJustification"></lightning-textarea>
+                        </template>
+                        <template if:false={isEditMode}>
+                            <lightning-formatted-rich-text value={budgetJustification}></lightning-formatted-rich-text>
+                        </template>
+                    </span>
+                </div>
+                
+                <div class="slds-col slds-size_1-of-1 slds-box slds-theme_default slds-var-m-bottom_medium">
+                    <div class="slds-grid slds-grid_align-spread slds-col">
+                        <p><strong>Confidentiality Statements:</strong></p>
+                        <lightning-icon icon-name="utility:edit" size="xx-small" alternative-text="Edit" onclick={toggleEditMode}></lightning-icon>
+                    </div>
+                    <span>
+                        <template if:true={isEditMode}>
+                            <lightning-textarea value={confidentialityStatements} onchange={handleChange} data-id="confidentialityStatements"></lightning-textarea>
+                        </template>
+                        <template if:false={isEditMode}>
+                            <lightning-formatted-rich-text value={confidentialityStatements}></lightning-formatted-rich-text>
+                        </template>
+                    </span>
+                </div>
+
+                <div class="slds-col slds-size_1-of-1 slds-box slds-theme_default slds-var-m-bottom_medium">
+                    <div class="slds-grid slds-grid_align-spread slds-col">
+                        <p><strong>Additional Information:</strong></p>
+                        <lightning-icon icon-name="utility:edit" size="xx-small" alternative-text="Edit" onclick={toggleEditMode}></lightning-icon>
+                    </div>
+                    <span>
+                        <template if:true={isEditMode}>
+                            <lightning-textarea value={additionalInfo} onchange={handleChange} data-id="additionalInfo"></lightning-textarea>
+                        </template>
+                        <template if:false={isEditMode}>
+                            <lightning-formatted-rich-text value={additionalInfo}></lightning-formatted-rich-text>
+                        </template>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="slds-var-p-around_medium">
+            <template if:true={isEditMode}>
+                <lightning-button class="slds-var-p-right_large" label="Save" onclick={handleSave}></lightning-button>
+                <lightning-button label="Cancel" onclick={toggleEditMode}></lightning-button>
+            </template>
+        </div>
+    </lightning-card>
+</template>
