@@ -4,7 +4,6 @@ import Id from '@salesforce/user/Id';
 
 export default class StatusPathComponent extends LightningElement {
     userId = Id;
-    application;
     stages = [
         { label: 'Concept Paper', value: 'Concept Paper', selected: false, class: 'slds-path__item', tabindex: -1 },
         { label: 'Full Application', value: 'Full Application', selected: false, class: 'slds-path__item', tabindex: -1 },
