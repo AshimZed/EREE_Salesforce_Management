@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Application Status" icon-name="standard:process">
+        <div class="slds-path">
+            <div class="slds-grid slds-path__track">
+                <div class="slds-grid slds-path__scroller-container">
+                    <div class="slds-path__scroller">
+                        <div class="slds-path__scroller_inner">
+                            <ul class="slds-path__nav" role="listbox" aria-orientation="horizontal" aria-labelledby="slds-path__stage-name">
+                                <template for:each={stagesWithClass} for:item="stage">
+                                    <li key={stage.value} class={stage.class} role="presentation">
+                                        <a aria-selected={stage.selected} class="slds-path__link" href="javascript:void(0);" data-id={stage.value} role="option" tabindex={stage.tabindex} onclick={handleStageClick}>
+                                            <span class="slds-path__stage">
+                                                <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+                                                </svg>
+                                                <span class="slds-assistive-text">Stage: {stage.label}</span>
+                                            </span>
+                                            <span class="slds-path__title">{stage.label}</span>
+                                        </a>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-grid slds-path__action">
+                    <span id="slds-path__stage-name" class="slds-path__stage-name">Stage: {currentStageLabel}</span>
+                    <button class="slds-button slds-button_brand slds-path__mark-complete" onclick={markComplete}>
+                        <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+                        </svg>
+                        Mark Status as Complete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>
