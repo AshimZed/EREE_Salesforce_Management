@@ -25,4 +25,21 @@ public without sharing class CompanyPortalController {
                         Technical_Contact__c, Technical_Description__c FROM Application__c WHERE Company__c = :contact.AccountId LIMIT 1];
     }
 
+    // Get the list of current notifications for the current user
+    @AuraEnabled(cacheable=true)
+    public static List<Notification__c> getNotifications(String userId) {
+        User user = [SELECT Id, ContactId FROM User WHERE Id = :userId LIMIT 1];
+        Contact contact = [SELECT Id, AccountId FROM Contact WHERE Id = :user.ContactId LIMIT 1];
+        Application__c application = [SELECT Id FROM Application__c WHERE Company__c = :contact.AccountId LIMIT 1];
+        return [SELECT Subject__c, Detail__c, Seen__c, CreatedDate FROM Notification__c WHERE Application__c = :application.Id ORDER BY CreatedDate DESC];
+    }
+
+    // Set the notification as seen
+    @AuraEnabled
+    public static void setNotificationAsSeen(String notificationId) {
+        Notification__c notification = [SELECT Id, Seen__c FROM Notification__c WHERE Id = :notificationId LIMIT 1];
+        notification.Seen__c = true;
+        update notification;
+    }
+
 }
