@@ -46,7 +46,6 @@ public without sharing class CompanyPortalController {
     public static void updateApplication(Map<String, Object> fields) {
         Id recordId = (Id) fields.remove('Id');
         
-        // Add debug statement
         System.debug('Record ID: ' + recordId);
         if (recordId == null) {
             throw new AuraHandledException('Record ID is missing.');
@@ -54,7 +53,7 @@ public without sharing class CompanyPortalController {
         
         List<Application__c> apps = [SELECT Id FROM Application__c WHERE Id = :recordId LIMIT 1];
         
-        // Add debug statement
+        
         System.debug('Fetched Application: ' + apps);
 
         if (apps.isEmpty()) {
@@ -69,4 +68,20 @@ public without sharing class CompanyPortalController {
         update app;
     }
 
+    // Method to handle saving of uploaded file - WORKS WITH LWR
+    @AuraEnabled
+    public static void uploadFile(String fileName, String base64Data, String recordId) {
+        try {
+            // Create ContentVersion
+            ContentVersion contentVersion = new ContentVersion();
+            contentVersion.Title = fileName;
+            contentVersion.PathOnClient = fileName;
+            contentVersion.VersionData = EncodingUtil.base64Decode(base64Data);
+            contentVersion.FirstPublishLocationId = recordId;
+            insert contentVersion;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+    
 }
