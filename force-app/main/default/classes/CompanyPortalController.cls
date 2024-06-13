@@ -83,5 +83,40 @@ public without sharing class CompanyPortalController {
             throw new AuraHandledException(e.getMessage());
         }
     }
+
+    // Methods to display and delete files to logged in users
+    // Fetch files related to a specific record
+    @AuraEnabled(cacheable=true)
+    public static List<ContentDocumentLink> getFiles(String recordId) {
+        return [SELECT ContentDocumentId, ContentDocument.Title, ContentDocument.LatestPublishedVersionId 
+                FROM ContentDocumentLink 
+                WHERE LinkedEntityId = :recordId];
+    }
+
+    // // Delete a file
+    // @AuraEnabled
+    // public static void deleteFile(String contentDocumentId) {
+    //     List<ContentDocumentLink> linksToDelete = [SELECT Id FROM ContentDocumentLink WHERE ContentDocumentId = :contentDocumentId];
+    //     delete linksToDelete;
+
+    //     ContentDocument docToDelete = [SELECT Id FROM ContentDocument WHERE Id = :contentDocumentId];
+    //     delete docToDelete;
+    // }
+
+    @AuraEnabled
+    public static void deleteFile(String contentDocumentId) {
+    try {
+        // Delete all ContentDocumentLink records associated with the ContentDocumentId
+        List<ContentDocumentLink> linksToDelete = [SELECT Id FROM ContentDocumentLink WHERE ContentDocumentId = :contentDocumentId];
+        delete linksToDelete;
+
+        // Delete the ContentDocument record
+        ContentDocument docToDelete = [SELECT Id FROM ContentDocument WHERE Id = :contentDocumentId];
+        delete docToDelete;
+    } catch (Exception e) {
+        throw new AuraHandledException(e.getMessage());
+    }
+}
+
     
 }
