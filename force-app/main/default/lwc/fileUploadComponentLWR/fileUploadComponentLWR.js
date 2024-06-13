@@ -16,7 +16,6 @@ export default class FileUploadComponentLWR extends LightningElement {
     @wire(getApplication, { userId: '$userId' })
     wiredApplication({ error, data }) {
         if (data) {
-            console.log('Fetched application data:', data); 
             this.recordId = data.Id;
         } else if (error) {
             console.error(error);
