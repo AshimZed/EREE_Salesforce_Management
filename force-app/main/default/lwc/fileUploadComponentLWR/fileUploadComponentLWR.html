@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="File Upload" icon-name="utility:upload">
+        <div class="slds-p-around_medium">
+            <lightning-input type="file" label="Attach Files" multiple onchange={handleFilesChange}></lightning-input>
+            <lightning-button label="Upload File" onclick={handleFileUpload} disabled={disableUpload}></lightning-button>
+        </div>
+    </lightning-card>
+
+    <!-- Custom Toast Notification -->
+    <div if:true={showToast} class="custom-toast {toastVariant}">
+        <span class="toast-message">{toastMessage}</span>
+        <button class="close-button" onclick={closeToast}>x</button>
+    </div>
+</template>
