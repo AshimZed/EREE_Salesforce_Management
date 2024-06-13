@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Uploaded Files" icon-name="utility:attachment">
+        <template if:true={files}>
+            <ul class="slds-list_dotted">
+                <template for:each={files} for:item="file">
+                    <li key={file.ContentDocumentId}>
+                        <lightning-button label={file.ContentDocument.Title} variant="base" title="View File" onclick={handleViewFile} data-id={file.ContentDocument.LatestPublishedVersionId}></lightning-button>
+                        <lightning-button-icon icon-name="utility:delete" alternative-text="Delete" title="Delete File" onclick={handleDeleteFile} data-id={file.ContentDocumentId}></lightning-button-icon>
+                    </li>
+                </template>
+            </ul>
+        </template>
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+        </template>
+        <template if:true={error}>
+            <div class="slds-text-color_error">{error}</div>
+        </template>
+    </lightning-card>
+
+    <!-- Custom Toast Notification -->
+    <div if:true={showToast} class="custom-toast {toastVariant}">
+        <span class="toast-message">{toastMessage}</span>
+        <button class="close-button" onclick={closeToast}>x</button>
+    </div>
+</template>
