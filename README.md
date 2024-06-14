@@ -20,8 +20,9 @@ The project includes the following key features:
 ## Main Project Files
 
 - **`force-app/main/default/classes`**: Contains all custom Apex classes used in the project.
+- **`force-app/main/default/lwc`**: Contains all custom Lightning Web Components used in the project.
 - **`force-app/main/default/triggers`**: Contains all custom Apex triggers used in the project.
 
 ## Development and Deployment
 
-This project will be developed using Salesforce Developer Edition Orgs. Each Team Member will use a Scratch Org to build their solutions before deploying to the shared Developer Edition Org. 
+This project was developed using Salesforce Developer Edition Orgs. Each Team Member used a Scratch Org to build their solutions before deploying to the shared Developer Edition Org. 
